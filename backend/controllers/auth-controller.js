@@ -54,8 +54,8 @@ export const verifyOTPSignUp = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, JWT_SECRET_KEY, { expiresIn: "7h" });
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "Strict",
+            secure: true,
+            sameSite: "Node",
             maxAge: 7 * 24 * 60 * 60 * 1000,
         })
         res.status(200).json({ message: "SignUp Successfull", data: user });
@@ -108,8 +108,8 @@ export const verifyOTPLogin = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, JWT_SECRET_KEY, { expiresIn: keepMeLogin ? "30d" : "7h" });
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "Strict",
+            secure: true,
+            sameSite: "None",
             maxAge: 7 * 24 * 60 * 60 * 1000,
         })
         res.status(200).json({ message: "Login Successfull", data: user });
