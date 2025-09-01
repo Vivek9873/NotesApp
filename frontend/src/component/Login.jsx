@@ -174,7 +174,7 @@ const Login = () => {
           {/* Already have account */}
           <p className="mt-4 text-gray-500 text-sm">
             Need an account?{" "}
-            <a href="/login" className="text-blue-600 font-medium underline">
+            <a href="/signup" className="text-blue-600 font-medium underline">
               Create one
             </a>
           </p>
